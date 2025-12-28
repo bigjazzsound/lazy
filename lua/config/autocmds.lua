@@ -19,19 +19,6 @@ autocmd("WinLeave", {
   desc = "Disable cursorline",
 })
 
--- autocmd("TextYankPost", {
---   callback = function()
---     vim.hl.on_yank({ timeout = 100 })
---   end,
--- })
-
--- autocmd({ "VimResized", "WinNew" }, {
---   callback = function()
---     vim.cmd.wincmd("=")
---   end,
---   desc = "Auto resize windows",
--- })
-
 autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup("Term", { clear = true }),
   callback = function()
