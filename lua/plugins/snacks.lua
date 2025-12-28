@@ -29,20 +29,9 @@ return {
             "~/work",
             "~/work/ref",
           },
-          -- patterns = {
-          --   -- ".git", -- git repo
-          --   -- "HEAD", -- git worktree
-          --   -- "README.md",
-          -- },
           layout = {
             preview = false,
           },
-          -- format = function(item, _)
-          --   vim.print(item)
-          --   return {
-          --     { item.text, item.text_hl },
-          --   }
-          -- end,
         })
       end,
       desc = "Projects",
