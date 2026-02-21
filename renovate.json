@@ -3,6 +3,10 @@
 
   "extends": ["config:recommended"],
 
+  "customDatasources": {
+    "nvim-plugin": {}
+  },
+
   "customManagers": [
     {
       "customType": "regex",
@@ -23,6 +27,26 @@
       ],
       "datasourceTemplate": "github-commits",
       "versioningTemplate": "git"
+    }
+  ],
+
+  "packageRules": [
+    {
+      "description": "Auto-merge GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "automergeType": "pr",
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days",
+      "ignoreTests": true
+    },
+    {
+      "description": "Auto-merge minor nvim plugins",
+      "automerge": true,
+      "automergeType": "pr",
+      "ignoreTests": true,
+      "matchDatasources": ["custom.nvim-plugin"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
     }
   ]
 }
