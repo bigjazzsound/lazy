@@ -9,21 +9,21 @@
 
   "customManagers": [
     {
-      "customType": "regex",
       "description": "lazy.nvim plugin tag/version updates",
-      "managerFilePatterns": ["(^|/)lua/plugins/.*\\.lua$"],
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)lua/plugins/.*\\.lua$/"],
       "matchStrings": [
-        "\\{\\s*\"(?<depName>[^\\\"]+/[^\\\"]+)\".*?(?:version|tag)\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+        "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,\\s*(?:[^}]*?)?(?:version|tag)\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
     },
     {
-      "customType": "regex",
       "description": "lazy.nvim commit pin updates",
-      "managerFilePatterns": ["(^|/)lua/plugins/.*\\.lua$"],
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)lua/plugins/.*\\.lua$/"],
       "matchStrings": [
-        "\\{\\s*\"(?<depName>[^\\\"]+/[^\\\"]+)\".*?commit\\s*=\\s*\"(?<currentValue>[a-f0-9]+)\""
+        "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,[\\s\\S]*?commit\\s*=\\s*\"(?<currentValue>[a-f0-9]{7,40})\""
       ],
       "datasourceTemplate": "github-commits",
       "versioningTemplate": "git"
