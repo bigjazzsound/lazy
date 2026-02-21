@@ -1,3 +1,28 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  "extends": ["config:recommended"],
+
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "lazy.nvim plugin tag/version updates",
+      "fileMatch": ["(^|/)lua/plugins/.*\\.lua$"],
+      "matchStrings": [
+        "\\{\\s*\"(?<depName>[^\\\"]+/[^\\\"]+)\".*?(?:version|tag)\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "lazy.nvim commit pin updates",
+      "fileMatch": ["(^|/)lua/plugins/.*\\.lua$"],
+      "matchStrings": [
+        "\\{\\s*\"(?<depName>[^\\\"]+/[^\\\"]+)\".*?commit\\s*=\\s*\"(?<currentValue>[a-f0-9]+)\""
+      ],
+      "datasourceTemplate": "github-commits",
+      "versioningTemplate": "git"
+    }
+  ]
 }
