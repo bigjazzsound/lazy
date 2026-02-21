@@ -1,5 +1,6 @@
 return {
   "stevearc/overseer.nvim",
+  version = "v2.1.0",
   cmd = {
     "OverseerRun",
     "OverseerToggle",

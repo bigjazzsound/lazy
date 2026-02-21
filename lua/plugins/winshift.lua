@@ -1,5 +1,6 @@
 return {
   "sindrets/winshift.nvim",
+  commit = "37468ed6f385dfb50402368669766504c0e15583",
   keys = function()
     local keys = {}
     for k, v in pairs({
