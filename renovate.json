@@ -7,17 +7,17 @@
     {
       "customType": "regex",
       "description": "lazy.nvim plugin tag/version updates",
-      "fileMatch": ["(^|/)lua/plugins/.*\\.lua$"],
+      "managerFilePatterns": ["(^|/)lua/plugins/.*\\.lua$"],
       "matchStrings": [
         "\\{\\s*\"(?<depName>[^\\\"]+/[^\\\"]+)\".*?(?:version|tag)\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
     },
     {
       "customType": "regex",
       "description": "lazy.nvim commit pin updates",
-      "fileMatch": ["(^|/)lua/plugins/.*\\.lua$"],
+      "managerFilePatterns": ["(^|/)lua/plugins/.*\\.lua$"],
       "matchStrings": [
         "\\{\\s*\"(?<depName>[^\\\"]+/[^\\\"]+)\".*?commit\\s*=\\s*\"(?<currentValue>[a-f0-9]+)\""
       ],
