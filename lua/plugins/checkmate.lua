@@ -1,6 +1,6 @@
 return {
   "bngarren/checkmate.nvim",
-  version = "v0.12.0",
+  version = "v0.12.1",
   ft = "markdown",
   cmd = "Checkmate",
   opts = {
