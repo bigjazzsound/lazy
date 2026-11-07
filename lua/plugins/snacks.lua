@@ -1,9 +1,11 @@
 return {
   "folke/snacks.nvim",
-  version = "v2.30.0",
-  ---@type snacks.Config
-  opts = {
-    picker = {
+  commit = "882c996cf28183f4d63640de0b4c02ec886d01f2",
+  opts = function(_, opts)
+    -- I prefer oil.nvim
+    opts.explorer = nil
+
+    opts.picker = {
       win = {
         input = {
           keys = {
@@ -14,28 +16,36 @@ return {
           },
         },
       },
-    },
-    zen = {
+    }
+
+    opts.zen = {
       toggles = {
         dim = false,
       },
-    },
-  },
+
+      zoom = {
+        win = {
+          width = 0.45,
+        },
+      },
+    }
+
+    return opts
+  end,
   keys = {
     {
-      "<leader>fp",
+      "<leader>ff",
       function()
-        Snacks.picker.projects({
-          dev = {
-            "~/work",
-            "~/work/ref",
-          },
-          layout = {
-            preview = false,
-          },
-        })
+        Snacks.picker.files({ hidden = true })
       end,
-      desc = "Projects",
+      desc = "Find Files",
+    },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.files({ hidden = true })
+      end,
+      desc = "Find Files",
     },
   },
 }

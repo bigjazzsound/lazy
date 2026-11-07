@@ -7,6 +7,10 @@ return {
         require("github-notifications.config")
       end,
     },
+    {
+      "bigjazzsound/gh-workflow-status",
+      dir = "~/playground/plugins/gh-workflow-status",
+    },
     { "nvim-lua/plenary.nvim" },
   },
   config = function()
@@ -14,7 +18,7 @@ return {
 
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "catppuccin-macchiato",
         section_separators = { "", "" },
         component_separators = { "", "" },
         icons_enabled = true,
@@ -22,7 +26,9 @@ return {
       },
 
       sections = {
-        lualine_a = {},
+        lualine_a = {
+          "branch",
+        },
         lualine_b = {
           {
             "filename",
@@ -72,7 +78,7 @@ return {
           require("github-notifications").statusline_notification_count,
         },
         lualine_z = {
-          "branch",
+          require("gh-workflow-status").status,
         },
       },
     })

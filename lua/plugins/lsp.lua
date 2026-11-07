@@ -1,0 +1,43 @@
+return {
+  "neovim/nvim-lspconfig",
+  ---@class PluginLspOpts
+  -- opts = {
+  --   ---@type lspconfig.options
+  --   servers = {
+  --     yamlls = {
+  --       settings = {
+  --         yaml = {
+  --           customTags = {
+  --             -- atmos
+  --             "!append",
+  --             "!aws.account_id",
+  --             "!aws.caller_identity_arn",
+  --             "!aws.caller_identity_user_id",
+  --             "!aws.organization_id",
+  --             "!aws.region",
+  --             "!cwd",
+  --             "!env",
+  --             "!exec",
+  --             "!git.host",
+  --             "!git.name",
+  --             "!git.owner",
+  --             "!git.repository",
+  --             "!git.url",
+  --             "!include",
+  --             "!include.raw",
+  --             "!literal",
+  --             "!random",
+  --             "!repo-root",
+  --             "!store",
+  --             "!store.get",
+  --             "!template",
+  --             "!terraform.output",
+  --             "!terraform.state",
+  --             "!unset",
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+}

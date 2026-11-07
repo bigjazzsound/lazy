@@ -1,29 +1,16 @@
 return {
   "stevearc/overseer.nvim",
-  version = "v2.1.0",
-  cmd = {
-    "OverseerRun",
-    "OverseerToggle",
-  },
+  lazy = true,
   keys = {
     {
-      "<leader>rl",
-      function()
-        return require("overseer").run_template()
-      end,
-      desc = "List run targets",
-    },
-    {
-      "<leader>ro",
+      "<c-p>",
       function()
         return require("overseer").toggle()
       end,
       desc = "Toggle overseer window",
     },
   },
-  opts = {
-    task_list = {
-      max_height = 0.9,
-    },
-  },
+  opts = function(_, opts)
+    opts.task_list.max_height = 0.7
+  end,
 }

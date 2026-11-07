@@ -22,5 +22,5 @@ vim.keymap.set("n", "<m-t>", function()
 end, { desc = "Open a terminal in a new tab" })
 
 vim.keymap.set({ "n", "i" }, "<m-f>", function()
-  return Snacks.zen()
+  return Snacks.zen.zoom()
 end, { desc = "Focus current file" })
