@@ -3,10 +3,6 @@
 
   "extends": ["config:recommended"],
 
-  "customDatasources": {
-    "nvim-plugin": {}
-  },
-
   "customManagers": [
     {
       "description": "lazy.nvim plugin tag/version updates",
@@ -15,17 +11,31 @@
       "matchStrings": [
         "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,\\s*(?:[^}]*?)?(?:version|tag)\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
     },
     {
-      "description": "lazy.nvim commit pin updates",
+      "description": "lazy.nvim commit pin updates (master branch)",
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)lua/plugins/.*\\.lua$/"],
       "matchStrings": [
-        "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,[\\s\\S]*?commit\\s*=\\s*\"(?<currentValue>[a-f0-9]{7,40})\""
+        "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,[\\s\\S]*?commit\\s*=\\s*\"(?<currentDigest>[a-f0-9]{7,40})\""
       ],
-      "datasourceTemplate": "github-commits",
+      "currentValueTemplate": "master",
+      "packageNameTemplate": "https://github.com/{{depName}}",
+      "datasourceTemplate": "git-refs",
+      "versioningTemplate": "git"
+    },
+    {
+      "description": "lazy.nvim commit pin updates (main branch)",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)lua/plugins/.*\\.lua$/"],
+      "matchStrings": [
+        "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,[\\s\\S]*?commit\\s*=\\s*\"(?<currentDigest>[a-f0-9]{7,40})\""
+      ],
+      "currentValueTemplate": "main",
+      "packageNameTemplate": "https://github.com/{{depName}}",
+      "datasourceTemplate": "git-refs",
       "versioningTemplate": "git"
     }
   ],
@@ -45,7 +55,8 @@
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": true,
-      "matchDatasources": ["custom.nvim-plugin"],
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["git-refs", "github-tags"],
       "matchUpdateTypes": ["minor", "patch", "digest"]
     }
   ]
