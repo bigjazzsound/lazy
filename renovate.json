@@ -15,25 +15,12 @@
       "versioningTemplate": "semver"
     },
     {
-      "description": "lazy.nvim commit pin updates (master branch)",
+      "description": "lazy.nvim commit pin updates",
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)lua/plugins/.*\\.lua$/"],
       "matchStrings": [
         "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,[\\s\\S]*?commit\\s*=\\s*\"(?<currentDigest>[a-f0-9]{7,40})\""
       ],
-      "currentValueTemplate": "master",
-      "packageNameTemplate": "https://github.com/{{depName}}",
-      "datasourceTemplate": "git-refs",
-      "versioningTemplate": "git"
-    },
-    {
-      "description": "lazy.nvim commit pin updates (main branch)",
-      "customType": "regex",
-      "managerFilePatterns": ["/(^|/)lua/plugins/.*\\.lua$/"],
-      "matchStrings": [
-        "\"(?<depName>[^\"]+/[^\"]+)\"\\s*,[\\s\\S]*?commit\\s*=\\s*\"(?<currentDigest>[a-f0-9]{7,40})\""
-      ],
-      "currentValueTemplate": "main",
       "packageNameTemplate": "https://github.com/{{depName}}",
       "datasourceTemplate": "git-refs",
       "versioningTemplate": "git"
