@@ -1,5 +1,5 @@
 return {
   "Bekaboo/dropbar.nvim",
-  commit = "f7c6fa21e2a7c32576e7a1791774a3736987f467", -- https://github.com/Bekaboo/dropbar.nvim/pull/280
+  commit = "75df03973f3a06a85300bc8ca1f9f68e935cb78e", -- https://github.com/Bekaboo/dropbar.nvim/pull/280
   config = true,
 }
