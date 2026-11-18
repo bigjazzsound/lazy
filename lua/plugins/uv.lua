@@ -1,6 +1,6 @@
 return {
   "benomahony/uv.nvim",
-  commit = "b0bce1b61584fde99c316aa0587a4996c52df206",
+  commit = "62133bdaabba24e879a8b7fb8a75f24b54c2c9f6",
   ft = {
     "python",
   },
