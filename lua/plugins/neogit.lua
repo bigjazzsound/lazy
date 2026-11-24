@@ -1,6 +1,6 @@
 return {
   "NeogitOrg/neogit",
-  commit = "4a6e84d6602b063b8355a7fb23dbfddb06c55a3f",
+  commit = "0468adaa4af22ede35c0df6bdd81e93a9c217733",
   cmd = "Neogit",
   dependencies = {
     "nvim-lua/plenary.nvim",
